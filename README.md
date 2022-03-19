@@ -6,7 +6,7 @@ npm install
 ②For running this program, you need next files.
 auth.js file that contains
 
----
+```shell
 
 const auth = {
 NEXT_NFT_PINATA_KEY: "",
@@ -17,17 +17,17 @@ ALCHEMY_PROJECT_ID: "",
 
 export default auth;
 
----
+```
 
 You have to get account of pinata and alchemy.
 
 p-key.txt file that contains
 
----
+```shell
 
-your metamask account private key
+//your metamask account private key
 
----
+```
 
 ③To run this code, run next command.
 npm run dev
