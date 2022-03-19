@@ -1,8 +1,8 @@
-# Basic Sample Hardhat Project
+This is repository of New type NFT MRAKET.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+# To run Hardhat Project
 
-Try running some of the following tasks:
+how to run by hardhat
 
 ```shell
 npx hardhat accounts
