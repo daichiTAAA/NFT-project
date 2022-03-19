@@ -5,6 +5,9 @@ npm install
 
 ②For running this program, you need next files.
 auth.js file that contains
+
+---
+
 const auth = {
 NEXT_NFT_PINATA_KEY: "",
 NEXT_NFT_PINATA_SECRET:"",
@@ -14,13 +17,22 @@ ALCHEMY_PROJECT_ID: "",
 
 export default auth;
 
+---
+
+You have to get account of pinata and alchemy.
+
 p-key.txt file that contains
+
+---
+
 your metamask account private key
 
-③To run this code, run next command
+---
+
+③To run this code, run next command.
 npm run dev
 
-④To deploy contract, run next command
+④To deploy contract, run next command.
 For localhost:
 npx hardhat run scripts/deploy.js --network localhost
 For polygon mumbai network:
