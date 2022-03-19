@@ -3,7 +3,7 @@
 ①After clone this repository, first of all run next command to install dependencies.
 npm install
 
-②For running this program, you need next files.
+②To run this program, you need next files.
 auth.js file that contains
 
 ```shell
