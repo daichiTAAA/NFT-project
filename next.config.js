@@ -1,17 +1,4 @@
 /** @type {import('next').NextConfig} */
-// require("dotenv").config();
-
-// const nextConfig = {
-//   reactStrictMode: true,
-// };
-
-// module.exports = {
-//   nextConfig,
-//   env: {
-//     key: process.env.NEXT_NFT_PINATA_KEY,
-//     secret: process.env.NEXT_NFT_PINATA_SECRET,
-//   },
-// };
 
 module.exports = {
   images: {

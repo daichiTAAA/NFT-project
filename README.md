@@ -54,3 +54,12 @@ npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
 ```
+
+# References
+
+https://www.udemy.com/course/build-an-nft-marketplace-from-scratch-blockchain-dapp/
+https://docs.alchemy.com/alchemy/tutorials/nft-minter#create-your-pinata-api-key
+https://docs.alchemy.com/alchemy/tutorials/nft-minter
+https://docs.alchemy.com/alchemy/tutorials/how-to-create-an-nft/how-to-mint-a-nft
+https://docs.pinata.cloud/pinata-node-sdk#pinjsontoipfs
+https://github.com/ipfs/js-ipfs/tree/master/packages/ipfs-core#readme
