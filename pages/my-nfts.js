@@ -10,11 +10,13 @@ import { nftaddress, nftMarketaddress } from "../config";
 
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
 import KBMarket from "../artifacts/contracts/KBMarket.sol/KBMarket.json";
+import { useRouter } from "next/router";
 
 export default function MyAssets() {
   // array of nfts
   const [nfts, setNFts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
+  const router = useRouter();
 
   useEffect(() => {
     loadNFTs();
@@ -63,30 +65,9 @@ export default function MyAssets() {
     setLoadingState("loaded");
   }
 
-  //*******   TODO make a function to sell a NFT  ************ */
-
-  async function sellNFT(nft) {
-    const web3Modal = new Web3Modal();
-    const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
-    const contract = new ethers.Contract(
-      nftMarketaddress,
-      KBMarket.abi,
-      signer
-    );
-
-    const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
-    const transaction = await contract.createMarketSale(
-      nftaddress,
-      nft.tokenId,
-      {
-        value: price,
-      }
-    );
-
-    await transaction.wait();
-    loadNFTs();
+  function listNFT(nft) {
+    console.log("nft:", nft);
+    router.push(`/resell-nft?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`);
   }
 
   if (loadingState === "loaded" && !nfts.length)
@@ -124,10 +105,10 @@ export default function MyAssets() {
                   {nft.price} ETH
                 </p>
                 <button
-                  className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-3 px-12 rounded"
-                  onClick={() => sellNFT(nft)}
+                  className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded"
+                  onClick={() => listNFT(nft)}
                 >
-                  Sell
+                  List
                 </button>
               </div>
             </div>

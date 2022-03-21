@@ -1,10 +1,11 @@
 require("@nomiclabs/hardhat-waffle");
-import { ALCHEMY_PROJECT_ID } from "./auth.js";
+// const { ALCHEMY_PROJECT_ID } = require("./auth.js");
 
 const fs = require("fs");
 const keyData = fs.readFileSync("./p-key.txt", "utf8");
+const projectId = fs.readFileSync("./alchemy-project-id.txt", "utf8");
 
-const projectId = ALCHEMY_PROJECT_ID;
+// const projectId = ALCHEMY_PROJECT_ID;
 
 module.exports = {
   defaultNetwork: "hardhat",

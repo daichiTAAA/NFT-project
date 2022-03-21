@@ -204,7 +204,26 @@ contract KBMarket is ReentrancyGuard {
     return items;
   }
   
-  
+  // Updates the listing price of the contract
+  function updateListingPrice(uint _listingPrice) public payable {
+    require(owner == msg.sender, "Only marketplace owner can update listing price.");
+    listingPrice = _listingPrice;
+  }
+
+  // allows someone to resell a token they have purchased
+    function resellToken(address nftContract, uint256 tokenId, uint256 price) public payable {
+      require(idToMarketToken[tokenId].owner == msg.sender, "Only item owner can perform this operation");
+      require(msg.value == listingPrice, "Price must be equal to listing price");
+      idToMarketToken[tokenId].sold = false;
+      idToMarketToken[tokenId].price = price;
+      idToMarketToken[tokenId].seller = payable(msg.sender);
+      idToMarketToken[tokenId].owner = payable(address(this));
+      _tokensSold.decrement();
+
+      // _transfer(msg.sender, address(this), tokenId);
+      // NFT transaction
+      IERC721(nftContract).transferFrom(msg.sender, address(this), tokenId);
+    }
 
 
 }
